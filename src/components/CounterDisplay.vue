@@ -47,7 +47,7 @@ const numberFormatter = new Intl.NumberFormat('en-US', {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 160px;
+  width: 170px;
   font-size: 4em;
 }
 

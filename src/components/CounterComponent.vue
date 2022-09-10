@@ -70,23 +70,25 @@ function isToday(date: Date) {
 
 function incrementLearnCount() {
   state.learnCount = state.learnCount + GOD_NUMBER
-  incrementPlayCount()
+  incrementPlayCount(GOD_MULTIPLIER)
 }
 
 function decrementLearnCount() {
-  if (state.learnCount > 0) {
-    state.learnCount = state.learnCount - GOD_NUMBER
-    decrementPlayCount()
+  const tempCount = state.learnCount - GOD_NUMBER
+  if (tempCount >= 0) {
+    state.learnCount = tempCount
+    decrementPlayCount(GOD_MULTIPLIER)
   }
 }
 
-function incrementPlayCount() {
-  state.playCount = state.playCount + GOD_NUMBER * GOD_MULTIPLIER
+function incrementPlayCount(multiplier = 1) {
+  state.playCount = state.playCount + GOD_NUMBER * multiplier
 }
 
-function decrementPlayCount() {
-  if (state.playCount > 0) {
-    state.playCount = state.playCount - GOD_NUMBER * GOD_MULTIPLIER
+function decrementPlayCount(multiplier = 1) {
+  const tempCount = state.playCount - GOD_NUMBER * multiplier
+  if (tempCount >= 0) {
+    state.playCount = tempCount
   }
 }
 </script>
