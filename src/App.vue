@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import CounterComponent from './components/CounterComponent.vue'
 </script>
 
 <template>
@@ -21,7 +22,7 @@ import TheWelcome from './components/TheWelcome.vue'
   <main>
     <TheWelcome />
   </main>
-  <div>hello world</div>
+  <CounterComponent />
 </template>
 
 <style scoped>
