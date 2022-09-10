@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive, onMounted, watch } from 'vue'
+import CounterDisplay from './CounterDisplay.vue'
 
 const GOD_NUMBER = 0.5
 const GOD_MULTIPLIER = 2
@@ -91,24 +92,26 @@ function decrementPlayCount() {
 </script>
 
 <template>
-  <div>
-    <div>learnCount: {{ state.learnCount }}h</div>
-    <div>playCount: {{ state.playCount }}h</div>
-    <div>
-      <button :disabled="state.isLoading" @click="incrementLearnCount">
-        increment learn
-      </button>
-      <button :disabled="state.isLoading" @click="decrementLearnCount">
-        decrement learn
-      </button>
-    </div>
-    <div>
-      <button :disabled="state.isLoading" @click="incrementPlayCount">
-        increment play
-      </button>
-      <button :disabled="state.isLoading" @click="decrementPlayCount">
-        decrement play
-      </button>
-    </div>
-  </div>
+  <CounterDisplay
+    title="Learn Count"
+    :is-disabled="state.isLoading"
+    :count="state.learnCount"
+    @increment-count="incrementLearnCount"
+    @decrement-count="decrementLearnCount"
+  />
+
+  <CounterDisplay
+    title="Play Count"
+    :is-disabled="state.isLoading"
+    :count="state.playCount"
+    @increment-count="incrementPlayCount"
+    @decrement-count="decrementPlayCount"
+    class="counter"
+  />
 </template>
+
+<style scoped>
+.counter {
+  margin-top: 4rem;
+}
+</style>
